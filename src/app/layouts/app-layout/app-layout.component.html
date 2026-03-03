@@ -1,0 +1,21 @@
+<div class="min-h-screen bg-page-bg flex p-4 lg:p-6">
+
+
+    <app-sidebar />
+  
+    <!-- Main -->
+    <main class="flex-1">
+  
+      <div class="bg-white h-full rounded-[3rem] shadow-xl border border-slate-100 flex flex-col overflow-hidden">
+        <app-header />
+  
+        <!-- Content -->
+        <div class="flex-1 overflow-y-auto px-10 pb-12 pt-6">
+          <router-outlet></router-outlet>
+        </div>
+  
+      </div>
+  
+    </main>
+  
+  </div>

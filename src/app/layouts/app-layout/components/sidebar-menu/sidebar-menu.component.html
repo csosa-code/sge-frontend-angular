@@ -1,0 +1,25 @@
+<nav class="flex flex-col gap-2 flex-grow">
+
+    @for (item of menuItems; track item.route) {
+      <app-sidebar-menu-item [item]="item" />
+    }
+
+    <!-- <a routerLink="/app"
+       class="flex items-center gap-4 px-5 py-3.5 rounded-2xl bg-primary text-white font-semibold shadow-lg shadow-primary/25">
+      <span class="material-symbols-outlined">home</span>
+      <span class="text-sm">Inicio</span>
+    </a>
+
+    <a routerLink="/app/employees"
+       class="flex items-center gap-4 px-5 py-3.5 rounded-2xl hover:bg-white/80 hover:text-primary transition">
+      <span class="material-symbols-outlined">group</span>
+      <span class="text-sm font-medium">Empleados</span>
+    </a>
+
+    <a routerLink="/app/areas"
+       class="flex items-center gap-4 px-5 py-3.5 rounded-2xl hover:bg-white/80 hover:text-primary transition">
+      <span class="material-symbols-outlined">domain</span>
+      <span class="text-sm font-medium">Departamentos</span>
+    </a> -->
+
+  </nav>

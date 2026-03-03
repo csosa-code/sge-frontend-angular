@@ -1,0 +1,51 @@
+// @use '@angular/material' as mat;
+
+// /* ===== Custom Mat Form Field Style ===== */
+
+// .mat-mdc-form-field {
+//   width: 100%;
+// }
+
+// /* Fondo general */
+// .mat-mdc-text-field-wrapper {
+//   background-color: #f8fafc !important;
+//   border-radius: 16px !important;
+// }
+
+// /* Quitar underline */
+// .mdc-line-ripple {
+//   display: none !important;
+// }
+
+// /* Ajustar padding interno */
+// .mdc-text-field--filled {
+//   padding: 0 12px !important;
+// }
+
+// /* Focus personalizado */
+// .mdc-text-field--focused .mat-mdc-text-field-wrapper {
+//   box-shadow: 0 0 0 3px rgba(93, 165, 218, 0.15);
+// }
+
+// /* Altura uniforme */
+// .mat-mdc-input-element {
+//   padding: 12px 0 !important;
+// }
+
+
+// =============================================================================
+// _overrides.scss — Angular Material overrides for login form
+// Targets MDC-based components (Angular Material 15+)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// mat-form-field — login-field
+// Replaces the Material outline style with the custom rounded Tailwind look
+// -----------------------------------------------------------------------------
+
+// =============================================================================
+// _overrides.scss — Angular Material overrides — Login form
+// Replica exacta del mockup: inputs con prefix icon, rounded-2xl, bg-slate-50
+// Compatible con Angular Material 15+ (MDC-based components)
+// =============================================================================
+

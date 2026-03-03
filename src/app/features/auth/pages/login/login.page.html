@@ -1,0 +1,56 @@
+<div class="bg-page-bg text-dark-grey min-h-screen flex flex-col items-center justify-center p-4 lg:p-6">
+
+  <div class="w-full max-w-md">
+
+    <div class="bg-white w-full flex flex-col p-10 rounded-[3rem] shadow-xl border border-slate-100 p-10 lg:p-14">
+
+      <div class="flex flex-col items-center mb-12">
+        <div class="bg-primary rounded-lg p-2.5 flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-white text-3xl">grid_view</span>
+        </div>
+        <h1 class="text-dark-grey text-2xl font-bold leading-tight tracking-tight">Iniciar sesión</h1>
+        <p class="text-muted-grey text-sm font-normal">Sistema de Gestión Empresarial</p>
+      </div>
+
+      @if(showError()) {
+      <div class="mb-8 flex items-start gap-3 rounded-2xl border border-danger-pastel bg-danger-pastel/30 p-4">
+        <span class="material-symbols-outlined text-red-600 dark:text-red-400 text-sm mt-0.5">
+          error
+        </span>
+        <div class="flex flex-col gap-1">
+          <p class="text-danger-text text-sm font-bold leading-tight">Credenciales incorrectas</p>
+          <p class="text-danger-text/80 text-xs font-medium leading-normal">Por favor, verifique sus datos e
+            inténtelo de nuevo.</p>
+        </div>
+      </div>
+      }
+
+      <form [formGroup]="form" class="space-y-5">
+
+
+        <app-input label="Correo electrónico" type="text" icon="mail" placeholder="ejemplo@email.com"
+          formControlName="username" />
+
+
+        <app-input label="Contraseña" type="password" icon="lock" linkText="¿Olvidó su contraseña?"
+          [linkAction]="goToForgot" formControlName="password" />
+
+        <button (click)="login()" [disabled]="form.invalid || form.pending"
+          class="w-full flex items-center justify-center py-4 px-6 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-primary/25 hover:translate-y-[-1px]"
+          type="submit">
+          Iniciar sesión
+        </button>
+        <div class="mt-8 text-center">
+          <p class="text-sm text-muted-grey font-medium"> ¿No tienes una cuenta? <a
+              class="text-primary hover:text-primary/80 transition-colors hover:underline decoration-2 underline-offset-4 ml-1"
+              routerLink="/auth/register">Regístrate</a></p>
+        </div>
+      </form>
+
+    </div>
+    <p class="mt-8 text-center text-xs text-slate-400 dark:text-slate-500">© 2024 Enterprise Core System. Todos los
+      derechos reservados.</p>
+
+  </div>
+
+</div>

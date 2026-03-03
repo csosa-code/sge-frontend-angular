@@ -1,0 +1,65 @@
+<div class="w-full space-y-1.5">
+
+    <!-- Label + Optional Link -->
+    <div class="flex items-center justify-between">
+      <label class="text-sm font-bold text-slate-500 px-1">
+        {{ label() }}
+      </label>
+  
+      <button
+        *ngIf="linkText"
+        type="button"
+        (click)="linkAction()?.()"
+        class="text-xs font-bold text-primary hover:text-primary/80 transition-colors"
+      >
+        {{ linkText() }}
+      </button>
+    </div>
+  
+    <!-- Input Container -->
+    <div class="relative">
+  
+      <!-- Left Icon -->
+      <div *ngIf="icon"
+           class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <span class="material-symbols-outlined text-slate-400 text-lg">
+          {{ icon() }}
+        </span>
+      </div>
+  
+      <!-- Input -->
+      <input
+        class="block w-full
+               pl-10 pr-10 py-3.5
+               bg-slate-50/50
+               border border-slate-100
+               rounded-2xl
+               text-dark-grey
+               placeholder-slate-400
+               focus:outline-none
+               focus:ring-2 focus:ring-primary/20
+               focus:border-primary/30
+               transition-all sm:text-sm"
+  
+        [type]="inputType"
+        [placeholder]="placeholder()"
+        [value]="value"
+        (input)="handleInput($event)"
+        (blur)="onTouched()"
+        [disabled]="disabled"
+      />
+  
+      <!-- Toggle password -->
+      <button
+        *ngIf="type() === 'password'"
+        type="button"
+        (click)="togglePassword()"
+        class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600"
+      >
+        <span class="material-symbols-outlined text-lg">
+          {{ hidePassword() ? 'visibility' : 'visibility_off' }}
+        </span>
+      </button>
+  
+    </div>
+  </div>

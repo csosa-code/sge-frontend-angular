@@ -1,0 +1,25 @@
+<aside class="w-72 flex flex-col h-full px-8 pt-6 text-muted-grey">
+  
+    <!-- Logo -->
+    <div class="flex items-center gap-3 mb-10 px-2">
+      <div class="bg-primary rounded-xl p-2.5 flex items-center justify-center shadow-md shadow-primary/30">
+        <span class="material-symbols-outlined text-white text-2xl">grid_view</span>
+      </div>
+      <h1 class="text-dark-grey text-xl font-extrabold tracking-tight">SGE</h1>
+    </div>
+
+    <!-- Navigation -->
+    <app-sidebar-menu />
+
+    <!-- Logout -->
+    <div class="mt-auto">
+        <div class="bg-white rounded-2xl p-2 shadow-sm border border-slate-100 mb-2 hover:bg-red-50 hover:text-red-500 transition-all group">
+            <a class="flex items-center gap-4 px-4 py-3 rounded-xl text-muted-grey "
+                (click)="logout()">
+                <span class="material-symbols-outlined text-muted-grey/60 group-hover:text-red-500">logout</span>
+                <span class="text-sm font-semibold">Cerrar Sesión</span>
+            </a>
+        </div>
+    </div>
+
+  </aside>
