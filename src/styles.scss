@@ -6,13 +6,29 @@
 @use './styles/tailwind/theme' as tailwindTheme;
 @use './styles/material/overrides' as materialOverrides;
 @use "tailwindcss";
+// @use  'ngx-toastr/toastr' as toastr;
 
 
 
 @plugin "@tailwindcss/forms";
 
+#toast-container {
+  z-index: 999999 !important;
+}
 
+.cdk-overlay-container {
+  z-index: 1000 !important; /* Material suele usar 1000 */
+}
 
 body {
   font-family: 'Inter', sans-serif;
+}
+
+.ng-http-loader-wrapper {
+  z-index: 999999 !important;
+}
+
+.toast-container .ngx-toastr {
+  border-radius: 16px !important;
+  backdrop-filter: blur(6px);
 }

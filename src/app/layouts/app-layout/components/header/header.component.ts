@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PageHeaderService } from '../../../../core/services/page-header.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent {
 
   showNotifications = signal(false);
+  header = inject(PageHeaderService);
 
   toggleNotifications() {
     this.showNotifications.update(v => !v);

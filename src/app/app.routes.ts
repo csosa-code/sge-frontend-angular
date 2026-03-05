@@ -26,8 +26,21 @@ export const routes: Routes = [
         path: 'dashboard',
         loadComponent: () =>
           import('./features/dashboard/pages/dashboard/dashboard.component')
+      },
+      {
+        path: 'employees',
+        loadChildren: () =>
+          import('./features/employees/employees.routes')
+            .then(m => m.EMPLOYEES_ROUTES)
+      },
+      {
+        path: 'areas',
+        loadChildren: () =>
+          import('./features/areas/areas.routes')
+            .then(m => m.AREAS_ROUTES)
       }
     ]
   }
+ 
 ];
 

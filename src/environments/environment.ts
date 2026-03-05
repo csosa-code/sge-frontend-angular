@@ -1,5 +1,9 @@
 export const environment = {
     production: false,
+    
+    urlBase: 'http://localhost:5250/api-sge/',
+
+
     appProps: {
         name: 'Sistema de Gestión Empresarial',
         description: 'Sistema de Gestión Empresarial',

@@ -1,51 +1,32 @@
-// @use '@angular/material' as mat;
+.custom-dialog .mat-mdc-dialog-container {
+    padding: 0 !important;
+    border-radius: 24px !important;
+    overflow: hidden;
+    background: white;
+  }
+  
+  .cdk-overlay-backdrop {
+    backdrop-filter: blur(6px);
+  }
 
-// /* ===== Custom Mat Form Field Style ===== */
+  .mat-mdc-menu-panel {
+    background: white !important;
+    border-radius: 20px !important;
+    padding: 8px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #f1f5f9 !important; // slate-100
+  }
 
-// .mat-mdc-form-field {
-//   width: 100%;
-// }
+  .mat-mdc-menu-item {
+    border-radius: 12px !important;
+    margin: 4px 0 !important;
+  }
+  
+  .mat-mdc-menu-item:hover {
+    background-color: #f1f5f9 !important; // slate-100
+  }
 
-// /* Fondo general */
-// .mat-mdc-text-field-wrapper {
-//   background-color: #f8fafc !important;
-//   border-radius: 16px !important;
-// }
-
-// /* Quitar underline */
-// .mdc-line-ripple {
-//   display: none !important;
-// }
-
-// /* Ajustar padding interno */
-// .mdc-text-field--filled {
-//   padding: 0 12px !important;
-// }
-
-// /* Focus personalizado */
-// .mdc-text-field--focused .mat-mdc-text-field-wrapper {
-//   box-shadow: 0 0 0 3px rgba(93, 165, 218, 0.15);
-// }
-
-// /* Altura uniforme */
-// .mat-mdc-input-element {
-//   padding: 12px 0 !important;
-// }
-
-
-// =============================================================================
-// _overrides.scss — Angular Material overrides for login form
-// Targets MDC-based components (Angular Material 15+)
-// =============================================================================
-
-// -----------------------------------------------------------------------------
-// mat-form-field — login-field
-// Replaces the Material outline style with the custom rounded Tailwind look
-// -----------------------------------------------------------------------------
-
-// =============================================================================
-// _overrides.scss — Angular Material overrides — Login form
-// Replica exacta del mockup: inputs con prefix icon, rounded-2xl, bg-slate-50
-// Compatible con Angular Material 15+ (MDC-based components)
-// =============================================================================
-
+  .mat-mdc-menu-item .material-symbols-outlined {
+    font-size: 20px;
+    color: #64748b; // slate-500
+  }
