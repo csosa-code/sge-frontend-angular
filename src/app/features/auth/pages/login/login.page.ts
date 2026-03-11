@@ -7,6 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterLink } from "@angular/router";
 import { InputComponent } from "../../../../shared/components/ui/input/input.component";
+import { UserService } from '../../services/user.service';
+import { ToastrService } from 'ngx-toastr';
+import { StorageService } from '../../../../core/services/storage.service';
 
 @Component({
   selector: 'login-page',
@@ -18,16 +21,19 @@ import { InputComponent } from "../../../../shared/components/ui/input/input.com
     MatButtonModule,
     MatIconModule,
     RouterLink,
-      InputComponent
-],
+    InputComponent
+  ],
   templateUrl: './login.page.html',
   styleUrl: './login.page.scss',
 })
-export default class LoginPage { 
-  showError = signal(false);
+export default class LoginPage {
+
   fb = inject(FormBuilder);
   hidePassword = signal(true);
   router = inject(Router);
+  userSrv = inject(UserService);
+  toast = inject(ToastrService);
+  storageSrv = inject(StorageService);
 
   form = this.fb.group({
     username: ['', [Validators.required]],
@@ -39,9 +45,20 @@ export default class LoginPage {
       this.form.markAllAsTouched();
       return;
     }
+    const data = this.form.getRawValue();
 
-    console.log(this.form.value);
-    this.router.navigate(['/app']);
+    this.userSrv.login(data).subscribe(resp => {
+      if (resp.status) {
+        this.storageSrv.setToken(resp.data.token);
+        this.storageSrv.setSession(resp.data);
+        this.toast.success(resp.message);
+        this.router.navigate(['/app']);
+      } else {
+        this.toast.error(resp.message, 'Error', {
+          positionClass: 'toast-top-center'
+        });
+      }
+    });
   }
 
   goToForgot = () => {

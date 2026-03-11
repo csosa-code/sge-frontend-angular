@@ -9,6 +9,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { OVERLAY_DEFAULT_CONFIG } from '@angular/cdk/overlay';
 import { pendingRequestsInterceptor$ } from 'ng-http-loader';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,7 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptors([
         pendingRequestsInterceptor$,
-        httpErrorInterceptor
+        httpErrorInterceptor,
+        authInterceptor
       ])
     ),
     { provide: LOCALE_ID, useValue: 'es' },

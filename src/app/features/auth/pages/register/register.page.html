@@ -25,6 +25,7 @@
         <app-input label="Contraseña" type="password" icon="lock" placeholder="••••••••" formControlName="password" />
 
         <button
+          (click)="register()"
           class="w-full flex items-center justify-center py-4 px-6 rounded-2xl bg-primary hover:bg-primary/90 text-white font-bold text-sm tracking-wide transition-all shadow-lg shadow-primary/25 hover:translate-y-[-1px]"
           type="submit">
           Crear cuenta

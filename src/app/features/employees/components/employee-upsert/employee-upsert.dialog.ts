@@ -49,7 +49,7 @@ export default class EmployeeUpsertDialog implements OnInit {
   getAreas() {
     this.areaService.getAll().subscribe((resp) => {
       if (resp.status) {
-        this.areas.set(resp.data);
+        this.areas.set(resp.data.filter((area: Area) => area.statusId));
       }
     });
   }
