@@ -9,7 +9,7 @@
     
     COPY . .
     
-    RUN npm run build
+    RUN npm run build -- --base-href /sge/
     
     
     # ---------- Nginx ----------
