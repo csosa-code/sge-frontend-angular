@@ -1,7 +1,7 @@
 export const environment = {
     production: false,
     
-    urlBase: 'http://localhost:5250/api-sge/',
+    urlBase: '/api-sge/',
 
 
     appProps: {
