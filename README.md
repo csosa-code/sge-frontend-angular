@@ -1,59 +1,125 @@
-# SgeApp
+# SGE Frontend (Angular 21)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Frontend del **Sistema de Gestión Empresarial (SGE)** desarrollado con **Angular 21**, enfocado en experiencia de usuario moderna, arquitectura modular y consumo eficiente de APIs.
 
-## Development server
+Este proyecto consume el backend desarrollado en **.NET (Clean Architecture)** y representa una aplicación empresarial completa con autenticación, dashboards y gestión de entidades.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🧠 Descripción del proyecto
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Aplicación SPA diseñada para la gestión de empleados y departamentos, incluyendo autenticación, dashboard analítico y herramientas administrativas.
 
-## Code scaffolding
+El enfoque principal del proyecto es:
+- Escalabilidad del frontend
+- Separación de responsabilidades
+- Reutilización de componentes
+- Experiencia de usuario moderna
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🏗️ Arquitectura del Frontend
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+El proyecto sigue una estructura basada en **feature-based architecture**, separando claramente responsabilidades:
 
-```bash
-ng generate --help
-```
+- `core/`
+  → Servicios globales, interceptores, guards, utilidades y configuración base
 
-## Building
+- `features/`
+  → Módulos funcionales (auth, employees, areas, dashboard)
 
-To build the project run:
+- `shared/`
+  → Componentes reutilizables (inputs, UI, etc.)
 
-```bash
-ng build
-```
+- `layouts/`
+  → Layout principal (sidebar, header, navegación)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## ⚙️ Principales decisiones técnicas
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+- Uso de **Standalone Components (Angular moderno)**
+- Manejo de estado local con **Signals**
+- Arquitectura basada en **features (modular y escalable)**
+- Interceptores HTTP para:
+  - Manejo de errores global
+  - Inyección automática de JWT
+  - Loader global de peticiones
+- Guards para control de acceso:
+  - `authGuard`
+  - `guestGuard`
+- Formularios reactivos (**Reactive Forms**)
+- Uso de **Angular Material + TailwindCSS** (UI híbrida moderna)
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+## 🔐 Seguridad
 
-For end-to-end (e2e) testing, run:
+- Manejo de sesión mediante **JWT**
+- Persistencia de sesión en `localStorage`
+- Protección de rutas con guards
+- Interceptor que invalida sesión en errores `401`
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📦 Funcionalidades implementadas
 
-## Additional Resources
+### 🔑 Autenticación
+- Login
+- Registro de usuario
+- Persistencia de sesión
+- Redirección automática según estado de autenticación
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+### 👤 Empleados
+- Listado con:
+  - Paginación
+  - Filtros
+  - Ordenamiento
+- Creación y edición (modal dialog)
+- Activación / desactivación
+- Visualización enriquecida (avatar dinámico)
+
+---
+
+### 🏢 Departamentos
+- CRUD completo
+- Modal para creación y edición
+- Filtros y paginación
+
+---
+
+### 📊 Dashboard
+- Métricas en tiempo real:
+  - Total empleados
+  - Activos / inactivos
+  - Nómina mensual
+- Exportación de datos a **Excel (xlsx)**
+
+---
+
+## 🎨 UI / UX
+
+- Diseño moderno basado en:
+  - **TailwindCSS**
+  - **Angular Material**
+- Sistema de notificaciones con **ngx-toastr**
+- Loader global para peticiones HTTP
+- Layout empresarial:
+  - Sidebar
+  - Header dinámico
+  - Contenido modular
+
+---
+
+## 🔄 Comunicación con API
+
+El frontend consume una API estandarizada con estructura:
+
+```json
+{
+  "status": true,
+  "message": "Proceso exitoso",
+  "data": {}
+}
